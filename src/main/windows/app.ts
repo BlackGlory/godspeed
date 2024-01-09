@@ -42,17 +42,13 @@ export async function createAppWindow(): Promise<{
 
   window.setBrowserView(view)
 
-  const [windowWidth, windowHeight] = window.getSize()
-
-  // https://github.com/electron/electron/issues/4045
-  const ELECTRON_WINDOW_WIDTH_ERROR = 16
-  const ELECTRON_WINDOW_HEIGHT_ERROR = 39
+  const [windowContentWidth, windowContentHeight] = window.getContentSize()
   const addressBarHeight = 49
   view.setBounds({
     x: 0
   , y: addressBarHeight
-  , width: windowWidth - ELECTRON_WINDOW_WIDTH_ERROR
-  , height: windowHeight - addressBarHeight - ELECTRON_WINDOW_HEIGHT_ERROR
+  , width: windowContentWidth
+  , height: windowContentHeight - addressBarHeight
   })
   view.setAutoResize({
     width: true
