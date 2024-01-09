@@ -42,6 +42,18 @@ export async function createAppWindow(): Promise<{
 
   window.setBrowserView(view)
 
+  contextMenu({
+    window: view
+  , showSearchWithGoogle: false
+  , showCopyLink: true
+  , showCopyImage: true
+  , showCopyImageAddress: true
+  , showSaveImageAs: true
+  , showCopyVideoAddress: true
+  , showSaveVideoAs: true
+  , showInspectElement: true
+  })
+
   const [windowContentWidth, windowContentHeight] = window.getContentSize()
   const addressBarHeight = 49
   view.setBounds({
@@ -53,20 +65,6 @@ export async function createAppWindow(): Promise<{
   view.setAutoResize({
     width: true
   , height: true
-  })
-
-  // https://github.com/sindresorhus/electron-context-menu/pull/127#issue-776326691
-  view.webContents.addListener('did-finish-load', () => {
-    contextMenu({
-      window: view
-    , showCopyLink: true
-    , showCopyImage: true
-    , showCopyImageAddress: true
-    , showSaveImageAs: true
-    , showCopyVideoAddress: true
-    , showSaveVideoAs: true
-    , showInspectElement: true
-    })
   })
 
   view.webContents.addListener('page-title-updated', (e, title) => {
