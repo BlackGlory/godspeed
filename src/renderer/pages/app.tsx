@@ -2,7 +2,6 @@ import { useState, useContext } from 'react'
 import { IconButton } from '@components/icon-button.jsx'
 import { ArrowPathIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid'
 import { MainAPIContext, urlUpdatedObservable } from '@renderer/app-context.js'
-import { isURLString } from 'extra-utils'
 import { go, toString } from '@blackglory/prelude'
 import { useMount } from 'extra-react-hooks'
 
@@ -48,11 +47,10 @@ export function AppPage() {
             if (e.key === 'Enter') {
               const validURL = go(() => {
                 const trimmedURL = url.trim()
-                if (isURLString(trimmedURL)) return url
+                if (/^\w+:\/\/.+$/.test(trimmedURL)) return trimmedURL
                 if (trimmedURL.startsWith(':')) return 'http' + trimmedURL
                 if (trimmedURL.startsWith('//')) return 'http:' + trimmedURL
                 if (trimmedURL.startsWith('/')) return 'http:/' + trimmedURL
-                if (/^\w+:\/\//.test(trimmedURL)) return trimmedURL
                 return 'http://' + trimmedURL
               })
               setURL(validURL)
