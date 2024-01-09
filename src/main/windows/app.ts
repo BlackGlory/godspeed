@@ -20,7 +20,6 @@ export async function createAppWindow(): Promise<{
   , webPreferences: {
       preload: getResourcePath('lib/renderer/app-preload.cjs')
     , devTools: true
-    , backgroundThrottling: false
     }
   })
 
@@ -37,7 +36,10 @@ export async function createAppWindow(): Promise<{
   })
 
   const view = new BrowserView({
-    webPreferences: { devTools: true }
+    webPreferences: {
+      devTools: true
+    , backgroundThrottling: false
+    }
   })
 
   window.setBrowserView(view)
