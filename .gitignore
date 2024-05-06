@@ -61,9 +61,3 @@ typings/
 /lib
 /dist
 /release
-
-# Config
-/config.json
-
-# Data
-/data.db
