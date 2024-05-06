@@ -1,4 +1,4 @@
-import { app, BrowserWindow, BrowserView, shell } from 'electron'
+import { BrowserWindow, BrowserView, shell } from 'electron'
 import { isDev } from '@main/utils/is-dev.js'
 import { getResourcePath } from '@main/utils/paths.js'
 import contextMenu from 'electron-context-menu'
@@ -13,10 +13,6 @@ export async function createAppWindow(): Promise<{
   , height: 768
   , resizable: true
   , autoHideMenuBar: true
-  , show: !(
-      app.getLoginItemSettings().wasOpenedAsHidden ||
-      app.commandLine.hasSwitch('hidden')
-    )
   , webPreferences: {
       preload: getResourcePath('lib/renderer/app-preload.cjs')
     , devTools: true
