@@ -25,7 +25,7 @@ export function createAppMainAPI(
     }
 
   , canGoForward() {
-      return appView.webContents.canGoBack()
+      return appView.webContents.canGoForward()
     }
   , goForward() {
       appView.webContents.goForward()
