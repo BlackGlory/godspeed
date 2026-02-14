@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/BlackGlory/godspeed/compare/v0.1.1...v0.1.2) (2026-02-14)
+
+
+### Bug Fixes
+
+* **main:** canGoForward ([a1ace71](https://github.com/BlackGlory/godspeed/commit/a1ace71f1bc45154ecd3597fdcc4519a846e5e3d))
+
 ### [0.1.1](https://github.com/BlackGlory/godspeed/compare/v0.1.0...v0.1.1) (2025-02-07)
 
 ## 0.1.0 (2024-01-09)
