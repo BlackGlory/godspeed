@@ -7,7 +7,7 @@ export const api: ImplementationOf<IAppRendererAPI> = {
     return 'pong'
   }
 
-, urlUpdated(url) {
+, onURLUpdated(url) {
     urlUpdatedObservable.next(url)
   }
 }

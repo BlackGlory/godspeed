@@ -36,11 +36,11 @@ go(async () => {
     appRendererClientPromise.resolve(client)
 
     appView.webContents.addListener('did-navigate', async (e, url) => {
-      await client.urlUpdated(url)
+      await client.onURLUpdated(url)
     })
 
     appView.webContents.addListener('did-navigate-in-page', async (e, url) => {
-      await client.urlUpdated(url)
+      await client.onURLUpdated(url)
     })
   })
 

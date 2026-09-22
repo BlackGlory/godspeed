@@ -15,5 +15,5 @@ export interface IAppMainAPI {
 export interface IAppRendererAPI {
   ping(): string
 
-  urlUpdated(url: string): void
+  onURLUpdated(url: string): void
 }
