@@ -1,12 +1,12 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { IconButton } from '@components/icon-button.jsx'
 import { ArrowPathIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid'
 import { MainAPIContext, urlUpdatedObservable } from '@renderer/app-context.js'
 import { go, toString } from '@blackglory/prelude'
-import { useMount } from 'extra-react-hooks'
+import { useMount, useStrictContext } from 'extra-react-hooks'
 
 export function AppPage() {
-  const mainAPI = useContext(MainAPIContext)
+  const mainAPI = useStrictContext(MainAPIContext)
   const [url, setURL] = useState('')
   const [errorMessage, setErrorMessage] = useState<string | undefined>()
 
